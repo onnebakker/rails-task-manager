@@ -1,0 +1,17 @@
+<h2><%= @task.title %></h2>
+
+<div class="card text-white bg-secondary mb-3">
+  <div class="card-body">
+    <p class="card-text"><%=@task.details %></p>
+  </div>
+</div>
+
+<% if @task.completed == false %>
+  <input type="checkbox" name="task" value="task" > <%= "This task is not completed yet"  %><br>
+<% else %>
+  <input type="checkbox" name="task" value="task" checked> <%= "This task is completed"  %><br>
+<% end  %>
+
+<br>
+<p><%= link_to " Edit task", edit_task_path(@task) %></p>
+<p><%= link_to "Back to list", tasks_path %></p>

@@ -1,2 +1,13 @@
 <h1>My tasks</h1>
-<p><%= task.title %></p>
+
+<form action="/action_page.php">
+<% @tasks.each do |task| %>
+  <% if task.completed == true %>
+    <input type="checkbox" name="task" value="task" checked> <%= link_to task.title, task_path(task) %><br>
+  <% else %>
+    <input type="checkbox" name="task" value="task"> <%= link_to task.title, task_path(task) %><br>
+  <% end  %>
+<% end  %>
+</form>
+<br>
+<p><%= link_to " + Add a new task", tasks_new_path %></p>
